@@ -20,14 +20,15 @@ def query(drug_name, limit):
     q = "%22"
     
     URL = prefix + q + drug_name + q + '&limit=' + str(limit)
+    print URL
     j = urllib2.urlopen(URL)
     d = json.load(j)
     return d
 
 #---------------------------------------------------------#
 
-# store command line argument (string for drug name)
-drug_name = sys.argv[1]
+# query user for the input (string for drug name)
+drug_name = raw_input("Drug name?: ")
 
 limit = 1
 init = query(drug_name, limit)
@@ -35,11 +36,9 @@ init = query(drug_name, limit)
 # total # of records for that drug
 total = init['meta']['results']['total'] 
 
-
-
-
-
-# need to set the limit on the query 
+# need to set the limit on the query = total # of records
+data = query(drug_name, total)
+print len(data['results'])
 
 # process data
 '''
