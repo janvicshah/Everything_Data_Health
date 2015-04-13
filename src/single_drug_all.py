@@ -36,7 +36,11 @@ init = query(drug_name, limit)
 # total # of records for that drug
 total = init['meta']['results']['total'] 
 
+# find the # of records associated with the age, weight, sex
+sex = raw_input("Sex (Input : ")
+
 # need to set the limit on the query = total # of records
+# can only query 100 records at a time, so need to divide by 100 and query that many times
 data = query(drug_name, total)
 print len(data['results'])
 
