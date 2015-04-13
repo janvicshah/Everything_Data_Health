@@ -16,6 +16,7 @@ import sys
 
 # generate query url using given input parameters
 def query(drug_name):
+   
     prefix = "https://api.fda.gov/drug/event.json?api_key=vZC1Gh1XyJl58wZKsMfJifZisDOFRsGBCij3G32v&search=patient.drug.openfda.brand_name:"
     q = "%22"
     return prefix + q + drug_name + q + "w"
@@ -23,11 +24,14 @@ def query(drug_name):
 #---------------------------------------------------------#
 
 # store command line argument (string for drug name)
-drug_name = sys.argv[1]
-# load query result in json format
-URL = query(drug_name)
-j = urllib2.urlopen(URL)
-data = json.load(j)
+#drug_name = 'Lipitor'
+#sys.argv[1] = 'Lipitor'
+# drug_name = raw_input('enter a drug name :')
+# # load query result in json format
+# URL = query(drug_name)
+# j = urllib2.urlopen(URL)
+# data = json.load(j)
+# print(data)
 # process data
 '''
 analyze data here
